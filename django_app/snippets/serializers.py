@@ -32,6 +32,7 @@ from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
 
 class SnippetSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
+    highlight = serializers.HyperlinkedIdentityField(view_name='snippet-highlight', format='html')
 
     class Meta:
         model = Snippet
@@ -43,5 +44,6 @@ class SnippetSerializer(serializers.ModelSerializer):
             'language',
             'style',
 
-            'owner'
+            'owner',
+            'highlight'
         )
