@@ -7,6 +7,10 @@ from rest_framework.renderers import JSONRenderer
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
 
+__all__ = (
+    'snippet_list',
+    'snippet_detail',
+)
 
 class JSONResponse(HttpResponse):
     def __init__(self, data, **kwargs):
